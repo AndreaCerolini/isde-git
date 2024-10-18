@@ -25,6 +25,8 @@ def load_data(filename):
 	X = z[:, 1:]
 	return X, y
 
+
+
 def load_mnist_data(filename, n_samples=None):
 	"""This function returns MNIST handwritten digits and labels as ndarrays."""
 	data = pd.read_csv(filename)
@@ -42,3 +44,4 @@ def split_data(x, y, tr_fraction=0.5):
 
 	"""
 	pass
+	
