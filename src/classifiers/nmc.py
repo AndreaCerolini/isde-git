@@ -60,4 +60,5 @@ class NMC(object):
         
         return predictions, accuracy
     
-        #aggiungo un commento 2
+        #aggiungo un commento 44
+        #riga2
