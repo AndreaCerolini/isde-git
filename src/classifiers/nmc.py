@@ -37,9 +37,12 @@ class NMC(object):
     def fit(self, xtr, ytr):
         labels = np.unique(ytr)
         centroids = np.zeros(shape=(labels.size, xtr.shape[1]))
-
         for i, label in enumerate(labels):
             centroids[i, :] = xtr[ytr == label, :].mean(axis=0)
+        
+        # Store the centroids and labels in the instance attributes
+        self._centroids = centroids
+        self._class_labels = labels
 
         return centroids, labels
         pass
@@ -53,12 +56,7 @@ class NMC(object):
         # Per ciascuna immagine di test, si seleziona la classe con la distanza minore
         predictions = np.argmin(distances, axis=1)
         
-        # Calcola l'accuratezza del modello
-        accuracy = np.mean(predictions == self._class_labels) * 100
-        
-        print(f"Accuratezza: {accuracy:.2f}%")
-        
-        return predictions, accuracy
+        return predictions
     
         #aggiungo un commento 44
         #riga2
